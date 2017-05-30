@@ -1,0 +1,10 @@
+{% set list_class = "unstyled dataset-list" %}
+{% set item_class = "dataset-item module-content" %}
+{% if blog %}
+ <li class="dataset-item module-content">
+  <div class="dataset-content">
+   <h3 class="dataset-heading> <a href="">{{ blog.title }} </a></h3>
+   <p> {{ blog.content }} </p>
+  </div>
+ </li>
+{% endif %}
