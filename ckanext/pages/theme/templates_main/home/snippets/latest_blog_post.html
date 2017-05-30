@@ -1,8 +1,9 @@
-{% set blog_list = h.get_recent_blog_posts(1) %}
+{% set blog_list = h.get_recent_blog_posts(3) %}
+{% set url=h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_index', page='') %}
 <section class="group-list module module-narrow module-shallow">
  <div class="box">
   <header class="module-heading">
-   <h3 class="media-heading"> Siste endring</h3>
+   <h3 class="media-heading"> <a href={{ url }}>Endringer</a></h3>
   </header>
   <ul class="{{ list_class or 'dataset-list unstyled' }}">
    {% for blog_post in blog_list %}
