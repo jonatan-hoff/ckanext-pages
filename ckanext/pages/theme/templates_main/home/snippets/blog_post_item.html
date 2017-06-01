@@ -1,11 +1,17 @@
 {% set list_class = "unstyled dataset-list" %}
 {% set item_class = "dataset-item module-content" %}
+{% set truncate = truncate or 0 %}
+{% set truncate_title = truncate_title or 0 %}
 {% set url=h.url_for(controller='ckanext.pages.controller:PagesController', action='blog_show', page='/'+blog.name) %}
 {% if blog %}
  <li class="dataset-item module-content">
   <div class="dataset-content">
-   <h3 class="dataset-heading"> <a href={{ url }}>{{ blog.title }} </a></h3>
-   <p> {{ blog.content }} </p>
+   {% if truncate_title != 0 %}
+    <h3 class="dataset-heading"> <a href={{ url }}>{{ blog.title }} </a></h3>
+   {% endif %}
+   {% if truncate != 0 %} 
+    <p> {{ blog.content|truncate(truncate) }} </p>
+   {% endif %} 
   </div>
  </li>
 {% endif %}
