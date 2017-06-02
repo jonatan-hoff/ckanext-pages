@@ -8,10 +8,13 @@
   <div class="dataset-content">
    {% if truncate_title != 0 %}
     <h3 class="dataset-heading"> <a href={{ url }}>{{ blog.title }} </a></h3>
+    {% if blog.publish_date %}
+     <span class="muted date"> {{ h.render_datetime(blog.publish_date) }}  </span>
+    {% endif %}
    {% endif %}
    {% if truncate != 0 %} 
     <p> {{ blog.content|truncate(truncate) }} </p>
-   {% endif %} 
+  {% endif %} 
   </div>
  </li>
 {% endif %}
